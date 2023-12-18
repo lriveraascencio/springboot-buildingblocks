@@ -4,10 +4,13 @@ package com.stacksimplify.restservices.entities;
 
 
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
@@ -40,6 +43,9 @@ public class User {
 
 	@Column(name="SSN", length=50, nullable=false, unique=true)
 	private String ssn;
+	
+	@OneToMany(mappedBy="user")
+	private List<Order> orders;
 
 	// No argument Constructor
 	public User() {
@@ -112,6 +118,17 @@ public class User {
 
 	public void setSsn(String ssn) {
 		this.ssn = ssn;
+	}
+	
+	
+	
+
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> order) {
+		this.orders = order;
 	}
 
 	//ToString
