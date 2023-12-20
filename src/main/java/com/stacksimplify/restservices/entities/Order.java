@@ -3,6 +3,7 @@ package com.stacksimplify.restservices.entities;
 import org.springframework.hateoas.RepresentationModel;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,14 +13,17 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="orders")
-public class Order extends RepresentationModel{
-	
+@Table(name = "orders")
+public class Order extends RepresentationModel {
+
 	@Id
 	@GeneratedValue
+	@JsonView(Views.Internal.class)
 	private Long orderid;
+
+	@JsonView(Views.Internal.class)
 	private String orderdescription;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JsonIgnore
 	private User user;
@@ -52,7 +56,5 @@ public class Order extends RepresentationModel{
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
-	
-	
+
 }
