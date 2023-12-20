@@ -1,6 +1,6 @@
-insert into base values(101, 'kreddy@stacksimplify.com', 'Kalyan', 'Reddy', 'admin', 'ssn101', 'kreddy');
-insert into base values(102, 'gwiser@stacksimplify.com', 'Greg', 'Wiser', 'admin', 'ssn102', 'gwiser');
-insert into base values(103, 'dmark@stacksimplify.com', 'David', 'Mark', 'admin', 'ssn103', 'dmark');
+insert into base values(101,'kreddy@stacksimplify.com', 'Kalyan', 'Reddy', 'admin', 'ssn101', 'kreddy', 'New York');
+insert into base values(102,'gwiser@stacksimplify.com', 'Greg', 'Wiser', 'admin', 'ssn102', 'gwiser', 'New Jersey');
+insert into base values(103,'dmark@stacksimplify.com', 'David', 'Mark', 'admin', 'ssn103', 'dmark', 'California');
 
 insert into orders values( 2001, 101, 'order11');        
 insert into orders values( 2002, 101, 'order12');
