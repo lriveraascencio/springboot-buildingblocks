@@ -25,15 +25,18 @@ import com.stacksimplify.restservices.exceptions.UserNameNotFoundException;
 import com.stacksimplify.restservices.exceptions.UserNotFoundException;
 import com.stacksimplify.restservices.services.UserService;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
 
 
 
 //Controller0
+@Tag(name="User Management RESTful Services", description="Controller for User Management Service")
 @RestController
 @Validated
 @RequestMapping(value="/users") //class level /users
+
 public class UserController {
 
 	// Autowire UserService
@@ -41,6 +44,7 @@ public class UserController {
 	private UserService userService;
 
 	// getAllUsers Method
+	
 	@GetMapping
 	public List<User> getAllUsers() {
 		return userService.getAllUsers();
@@ -63,9 +67,10 @@ public class UserController {
 
 	// getUserById Method
 	@GetMapping("/{id}")
-	public Optional<User> getUserById(@PathVariable("id") @Min(1) Long id) {
+	public User getUserById(@PathVariable("id") @Min(1) Long id) {
 		try {
-			return userService.getUserById(id);			
+			Optional<User> userOptional = userService.getUserById(id);	
+			return userOptional.get();
 		} catch(UserNotFoundException ex) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getMessage());
 		}

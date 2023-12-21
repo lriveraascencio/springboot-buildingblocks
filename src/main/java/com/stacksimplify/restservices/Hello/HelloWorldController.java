@@ -20,22 +20,22 @@ public class HelloWorldController {
 	//Two ways to maps to a endpoint
 	
 	//@RequestMapping(method = RequestMethod.GET, path = "/helloworld")
-	@GetMapping("/helloworld1")
+	@GetMapping("/hello/world1")
 	public String helloworld() {
 		return "Hello world";
 	}
 	
-	@GetMapping("/helloworld-bean")
+	@GetMapping("/hello/world-bean")
 	public UserDetails helloWorldBean() {
 		return new UserDetails("Kalyan", "Reddy", "Hyderabad");
 	}
 	
-	@GetMapping("/hello-int")
+	@GetMapping("/hello/-int")
 	public String getMessagesInI18nFormat(@RequestHeader (name= "Accept-Language", required=false) String locale) {
 		return messageSource.getMessage("label.hello", null, new Locale(locale));
 	}
 	
-	@GetMapping("/hello-int2")
+	@GetMapping("/hello/-int2")
 	public String getMessagesInI18nFormat2(@RequestHeader (name= "Accept-Language", required=false) String locale) {
 		return messageSource.getMessage("label.hello", null, LocaleContextHolder.getLocale());
 	}

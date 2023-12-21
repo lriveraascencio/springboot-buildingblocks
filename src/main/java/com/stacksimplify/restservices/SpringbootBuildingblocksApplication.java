@@ -17,7 +17,7 @@ public class SpringbootBuildingblocksApplication {
 	}
 	
 	@Bean
-	public LocaleResolver localeResolver() {
+	public LocaleResolver localeResolver2() {
 		AcceptHeaderLocaleResolver localeResolver = new AcceptHeaderLocaleResolver();
 		localeResolver.setDefaultLocale(Locale.US);
 		return localeResolver;
